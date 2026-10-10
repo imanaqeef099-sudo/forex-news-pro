@@ -1,111 +1,343 @@
+
 <!DOCTYPE html>
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#09070f">
-<meta name="description" content="Forex News Pro — berita ekonomi, economic calendar dan analisis XAUUSD.">
+<meta name="description" content="VOID FX - Forex News, TradingView XAUUSD dan analisis pasaran.">
 <title>VOID FX | Forex News Pro</title>
 <style>
-:root{--bg:#09070f;--panel:#100d1a;--panel2:#151021;--line:#2a2038;--red:#ff3158;--purple:#a855f7;--text:#f5f1fb;--muted:#a69bb7;--green:#42e6a4;--yellow:#ffd166}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#35134c 0,transparent 38%),radial-gradient(ellipse at 0% 20%,#2b0c20 0,transparent 28%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.wrap{max-width:1200px;margin:auto;padding:0 20px}.topbar{border-bottom:1px solid #ffffff12;background:#09070fcc;backdrop-filter:blur(12px);position:sticky;top:0;z-index:10}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:1.4px;font-size:21px}.brand span{color:var(--red)}.brand small{display:block;font-size:9px;color:var(--muted);letter-spacing:3px;margin-top:3px}.navlinks{display:flex;gap:22px;color:var(--muted);font-size:13px}.navlinks a:hover{color:white}.pill{border:1px solid #ff315855;color:#ff8da2;border-radius:99px;padding:8px 12px;font-size:11px;letter-spacing:.5px}
-.hero{padding:58px 0 28px}.eyebrow{color:#ff7690;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(34px,6vw,66px);line-height:1.02;letter-spacing:-2px;max-width:800px;margin:14px 0}.hero h1 span{background:linear-gradient(90deg,#ff3158,#bc62ff);background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:660px;line-height:1.75;font-size:15px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{border:1px solid var(--line);background:var(--panel2);color:white;border-radius:10px;padding:12px 16px;font-weight:700;font-size:13px;cursor:pointer}.btn.primary{border:0;background:linear-gradient(110deg,var(--red),#a33bfa);box-shadow:0 8px 30px #ff315822}.btn:hover{transform:translateY(-1px)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0 36px}.stat,.card{background:linear-gradient(145deg,#151020ee,#0e0b16f2);border:1px solid var(--line);border-radius:16px}.stat{padding:18px}.stat label{display:block;color:var(--muted);font-size:11px;letter-spacing:.8px;text-transform:uppercase}.stat strong{display:block;font-size:22px;margin-top:9px}.stat small{color:var(--muted);font-size:11px}.section{padding:22px 0 35px;scroll-margin-top:88px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:16px}.section-head h2{font-size:23px;margin:7px 0 0}.section-head p{color:var(--muted);font-size:12px;margin:7px 0 0}.tag{font-size:10px;color:#d6b5ff;background:#a855f71c;border:1px solid #a855f744;padding:6px 9px;border-radius:7px;white-space:nowrap}
-.grid2{display:grid;grid-template-columns:1.35fr .85fr;gap:16px}.card{padding:20px;min-width:0}.card-title{font-weight:800;font-size:14px}.muted{color:var(--muted)}.news-list{display:grid;gap:0}.news-item{padding:16px 0;border-bottom:1px solid #ffffff10;display:grid;grid-template-columns:1fr auto;gap:14px}.news-item:last-child{border-bottom:0;padding-bottom:0}.news-item:first-child{padding-top:14px}.news-item h3{font-size:14px;line-height:1.5;margin:8px 0}.news-item p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}.meta{display:flex;gap:8px;flex-wrap:wrap;font-size:10px;color:var(--muted)}.label{padding:4px 7px;border-radius:5px;background:#ffffff0a;border:1px solid #ffffff12}.empty{padding:20px;border:1px dashed #453652;border-radius:10px;color:var(--muted);font-size:12px;line-height:1.7}.impact{font-size:10px;font-weight:800}.high{color:#ff637c}.medium{color:var(--yellow)}.low{color:var(--green)}
-.calendar-tools{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.control{background:#0a0811;color:white;border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-width:0}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:620px;text-align:left}th{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:700}td,th{padding:13px 10px;border-bottom:1px solid #ffffff10;font-size:12px}td{color:#e9e1f3}tr:last-child td{border-bottom:0}.impact-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px}.dot-high{background:var(--red);box-shadow:0 0 10px #ff315866}.dot-medium{background:var(--yellow)}.dot-low{background:var(--green)}
-.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.bias{display:flex;align-items:center;gap:12px;margin:18px 0}.bias-badge{border-radius:10px;padding:11px 14px;background:#42e6a414;border:1px solid #42e6a44a;color:var(--green);font-size:12px;font-weight:900}.bias-badge.neutral{background:#ffd16614;border-color:#ffd16644;color:var(--yellow)}.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}.level{padding:12px;background:#09070f;border:1px solid var(--line);border-radius:10px}.level small{display:block;color:var(--muted);font-size:10px}.level strong{display:block;margin-top:7px;font-size:14px}.chartbox{height:180px;margin-top:18px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#a855f70b,#ff31580a);position:relative}.chartbox svg{width:100%;height:100%}.chart-note{font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6}
-.disclaimer{border:1px solid #ffd16633;background:#ffd1660a;padding:14px 16px;border-radius:10px;color:#c8bca4;font-size:11px;line-height:1.7;margin-top:14px}.footer{border-top:1px solid #ffffff12;padding:28px 0 38px;margin-top:25px;color:var(--muted);font-size:11px;line-height:1.8}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer strong{color:white}.mobile-menu{display:none}
-@media(max-width:800px){.navlinks{gap:12px}.navlinks a{font-size:12px}.stats{grid-template-columns:repeat(2,1fr)}.grid2,.analysis-grid{grid-template-columns:1fr}.hero{padding-top:42px}.hero h1{letter-spacing:-1.2px}.section-head{align-items:start}.section-head h2{font-size:21px}}
-@media(max-width:540px){.wrap{padding:0 14px}.nav{min-height:64px;flex-wrap:wrap;padding:10px 0}.navlinks{order:3;width:100%;overflow:auto;padding:4px 0 8px}.navlinks a{white-space:nowrap}.pill{font-size:9px;padding:7px 9px}.hero p{font-size:13px}.stat{padding:14px}.stat strong{font-size:20px}.card{padding:15px}.section{padding-bottom:24px}.levels{grid-template-columns:1fr}.section-head{flex-direction:column;gap:10px}}
+:root{
+  --bg:#09070f;--panel:#100d1a;--panel2:#151021;
+  --line:#2a2038;--red:#ff3158;--purple:#a855f7;
+  --text:#f5f1fb;--muted:#a69bb7;--green:#42e6a4;
+  --yellow:#ffd166
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:radial-gradient(ellipse at 80% -10%,#35134c,transparent 38%),
+ radial-gradient(ellipse at 0% 20%,#2b0c20,transparent 28%),var(--bg);
+ color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif
+}
+a{color:inherit;text-decoration:none}
+button,select{font:inherit}
+.wrap{max-width:1200px;margin:auto;padding:0 18px}
+.topbar{position:sticky;top:0;z-index:10;background:#09070fee;
+ backdrop-filter:blur(12px);border-bottom:1px solid #ffffff12}
+.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font-weight:900;font-size:22px;letter-spacing:1px}
+.brand span{color:var(--red)}
+.brand small{display:block;font-size:9px;letter-spacing:3px;color:var(--muted)}
+.navlinks{display:flex;gap:18px;color:var(--muted);font-size:12px}
+.navlinks a:hover{color:white}
+.pill,.tag{border:1px solid #a855f744;background:#a855f715;color:#d6b5ff;
+ padding:7px 10px;border-radius:8px;font-size:10px}
+.hero{padding:55px 0 25px}
+.eyebrow{font-size:10px;letter-spacing:2px;color:#ff7690;font-weight:800}
+h1{font-size:clamp(36px,6vw,65px);line-height:1.05;letter-spacing:-2px;margin:14px 0}
+h1 span{background:linear-gradient(90deg,var(--red),#bc62ff);background-clip:text;color:transparent}
+.hero p{max-width:680px;color:var(--muted);line-height:1.8;font-size:14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{border:1px solid var(--line);background:var(--panel2);color:white;
+ border-radius:9px;padding:11px 15px;font-weight:750;font-size:12px;cursor:pointer}
+.btn.primary{border:0;background:linear-gradient(110deg,var(--red),#9333ea)}
+.btn:hover{filter:brightness(1.15)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 35px}
+.stat,.card{background:linear-gradient(145deg,#151020ee,#0e0b16f5);
+ border:1px solid var(--line);border-radius:14px}
+.stat{padding:17px;min-width:0}
+.stat label{font-size:10px;color:var(--muted);letter-spacing:1px}
+.stat strong{display:block;font-size:19px;margin:9px 0}
+.stat small{font-size:10px;color:var(--muted)}
+.section{padding:22px 0 32px;scroll-margin-top:85px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
+h2{font-size:23px;margin:7px 0}
+.section-head p{color:var(--muted);font-size:12px;line-height:1.6;margin:5px 0}
+.grid2,.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.card{padding:19px;min-width:0}
+.card-title{font-size:14px;font-weight:850;margin-bottom:12px}
+.muted{color:var(--muted)}
+.news-item{padding:15px 0;border-bottom:1px solid #ffffff12}
+.news-item:last-child{border:0;padding-bottom:0}
+.news-item h3{font-size:13px;line-height:1.5;margin:8px 0}
+.news-item p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+.meta{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:10px;color:var(--muted)}
+.label{padding:4px 7px;border-radius:5px;border:1px solid #ffffff16;background:#ffffff08}
+.notice{margin-top:14px;padding:13px;border:1px solid #ffd16635;
+ background:#ffd1660a;border-radius:9px;color:#c8bca4;font-size:11px;line-height:1.8}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.control{background:#09070f;border:1px solid var(--line);color:white;
+ border-radius:8px;padding:9px}
+.table-wrap{overflow:auto}
+table{width:100%;min-width:520px;border-collapse:collapse;text-align:left}
+th,td{padding:12px 9px;border-bottom:1px solid #ffffff12;font-size:11px}
+th{color:var(--muted);font-size:10px}
+.chart-frame{width:100%;height:500px;border:1px solid var(--line);
+ border-radius:10px;overflow:hidden;background:#0b0812}
+.chart-frame iframe{width:100%;height:100%;border:0}
+.chart-caption{font-size:10px;line-height:1.7;color:var(--muted);margin-top:10px}
+.trade-buttons{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin:15px 0}
+.trade-btn{padding:13px 5px;border-radius:9px;border:1px solid var(--line);
+ background:#0b0812;color:white;font-weight:900;cursor:pointer}
+.trade-btn.buy{color:var(--green);border-color:#42e6a455}
+.trade-btn.sell{color:#ff7188;border-color:#ff315855}
+.trade-btn.active.buy{background:#42e6a422;border-color:var(--green)}
+.trade-btn.active.sell{background:#ff315822;border-color:var(--red)}
+.trade-btn.active.neutral{background:#ffd16618;border-color:var(--yellow)}
+.scenario{padding:14px;border:1px solid var(--line);border-radius:10px;background:#0b0812}
+.scenario strong{font-size:13px}
+.scenario p{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:0}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.level{background:#09070f;border:1px solid var(--line);padding:12px;border-radius:9px}
+.level small{font-size:10px;color:var(--muted)}
+.level strong{display:block;margin-top:7px;font-size:12px}
+.footer{margin-top:25px;border-top:1px solid #ffffff12;padding:25px 0 35px;
+ color:var(--muted);font-size:11px;line-height:1.8}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:800px){
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .grid2,.analysis-grid{grid-template-columns:1fr}
+ .nav{flex-wrap:wrap;padding:10px 0}
+ .navlinks{order:3;width:100%;overflow:auto;padding:5px 0}
+ .navlinks a{white-space:nowrap}
+ .hero{padding-top:35px}
+ .chart-frame{height:430px}
+}
+@media(max-width:480px){
+ .wrap{padding:0 12px}.card{padding:14px}.stat{padding:12px}
+ .section-head{align-items:flex-start}.section-head h2{font-size:20px}
+ .levels{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<header class="topbar"><div class="wrap nav">
-<a class="brand" href="#"><span>VOID</span> FX<small>FOREX NEWS PRO</small></a>
-<nav class="navlinks"><a href="#news">News</a><a href="#calendar">Economic Calendar</a><a href="#analysis">XAUUSD Analysis</a></nav>
-<div class="pill">● MARKET DESK</div>
-</div></header>
+<header class="topbar">
+ <div class="wrap nav">
+  <a class="brand" href="#"><span>VOID</span> FX<small>FOREX NEWS PRO</small></a>
+  <nav class="navlinks">
+   <a href="#news">News</a>
+   <a href="#calendar">Calendar</a>
+   <a href="#tradingview">TradingView</a>
+   <a href="#analysis">Analysis</a>
+  </nav>
+  <span class="pill">● MARKET DESK</span>
+ </div>
+</header>
+
 <main class="wrap">
 <section class="hero">
-<div class="eyebrow">Your market briefing starts here</div>
-<h1>Read the market.<br><span>Understand the move.</span></h1>
-<p>Portal ringkas untuk berita ekonomi, kalendar data utama dan nota analisis emas. Dibina untuk memudahkan pemantauan pasaran — bukan menjanjikan arah harga.</p>
-<div class="hero-actions"><a class="btn primary" href="#news">Teroka berita ↗</a><a class="btn" href="#calendar">Lihat kalendar</a></div>
+ <div class="eyebrow">YOUR MARKET BRIEFING</div>
+ <h1>Read the market.<br><span>Understand the move.</span></h1>
+ <p>Portal pemantauan berita ekonomi, kalendar acara dan carta XAUUSD.
+ Gunakan data carta untuk membuat kajian sendiri. Tiada jaminan arah pasaran.</p>
+ <div class="actions">
+  <a class="btn primary" href="#tradingview">Buka carta XAUUSD ↗</a>
+  <a class="btn" href="#analysis">Analisis BUY / SELL</a>
+ </div>
 </section>
+
 <div class="stats">
-<div class="stat"><label>Gold / XAUUSD</label><strong id="gold-price">—</strong><small id="gold-status">Belum sambung sumber harga</small></div>
-<div class="stat"><label>USD Index / DXY</label><strong id="dxy-price">—</strong><small>Data akan muncul apabila API disambungkan</small></div>
-<div class="stat"><label>Market Status</label><strong style="font-size:17px">Watchlist</strong><small>Semak waktu pasaran dan sumber</small></div>
-<div class="stat"><label>Last Updated</label><strong id="updated" style="font-size:16px">—</strong><small>Waktu tempatan peranti</small></div>
+ <div class="stat"><label>XAUUSD</label><strong id="gold-price">Lihat carta</strong><small>Harga daripada TradingView</small></div>
+ <div class="stat"><label>USD INDEX</label><strong>DXY</strong><small>Semak simbol berasingan</small></div>
+ <div class="stat"><label>MARKET STATUS</label><strong style="font-size:16px">Watchlist</strong><small>Bukan isyarat perdagangan</small></div>
+ <div class="stat"><label>WAKTU PAPARAN</label><strong id="updated" style="font-size:14px">—</strong><small>Waktu peranti anda</small></div>
 </div>
+
 <section class="section" id="news">
-<div class="section-head"><div><div class="eyebrow">01 / Market headlines</div><h2>Forex News</h2><p>Masukkan berita yang telah disemak atau sambungkan news API.</p></div><span class="tag">NEWS DESK</span></div>
-<div class="grid2">
-<div class="card"><div class="card-title">Latest Headlines</div><div class="news-list" id="news-list"></div></div>
-<div class="card"><div class="card-title">Market Watch</div>
-<div class="news-list">
-<div class="news-item"><div><div class="meta"><span class="label">USD</span><span class="label">FED</span></div><h3>Federal Reserve & data ekonomi AS</h3><p>Pantau kenyataan rasmi Fed, inflasi dan pasaran pekerjaan sebelum membuat kesimpulan tentang dolar.</p></div></div>
-<div class="news-item"><div><div class="meta"><span class="label">GOLD</span><span class="label">XAUUSD</span></div><h3>Faktor yang boleh mempengaruhi emas</h3><p>Perhatikan hasil bon AS, dolar, jangkaan kadar faedah dan risiko geopolitik. Kesan boleh berubah mengikut keadaan pasaran.</p></div></div>
-<div class="news-item"><div><div class="meta"><span class="label">RISK</span></div><h3>Semak sumber sebelum bertindak</h3><p>Bandingkan masa penerbitan, angka sebenar dan ramalan. Elakkan membuat keputusan berdasarkan tajuk sahaja.</p></div></div>
-</div>
-</div>
-</div>
+ <div class="section-head">
+  <div><div class="eyebrow">01 / MARKET HEADLINES</div><h2>Forex News</h2>
+  <p>Nota pendidikan, bukan berita semasa yang disahkan.</p></div>
+  <span class="tag">EDITORIAL</span>
+ </div>
+ <div class="grid2">
+  <div class="card"><div class="card-title">Market Education</div>
+   <div class="news-item"><div class="meta"><span class="label">CPI</span><span class="label">PENDIDIKAN</span></div>
+    <h3>Cara memahami berita inflasi</h3>
+    <p>Bandingkan bacaan sebenar dengan ramalan dan bacaan terdahulu. Reaksi pasaran boleh berubah mengikut jangkaan pelabur.</p></div>
+   <div class="news-item"><div class="meta"><span class="label">GOLD</span><span class="label">PENDIDIKAN</span></div>
+    <h3>Faktor yang mempengaruhi emas</h3>
+    <p>Perhatikan dolar AS, hasil bon, jangkaan kadar faedah dan perkembangan geopolitik.</p></div>
+   <div class="news-item"><div class="meta"><span class="label">RISK</span><span class="label">PENDIDIKAN</span></div>
+    <h3>Risiko ketika berita berimpak tinggi</h3>
+    <p>Spread dan slippage boleh berubah. Elakkan membuat keputusan hanya berdasarkan tajuk berita.</p></div>
+  </div>
+  <div class="card"><div class="card-title">Sumber berita rasmi</div>
+   <div class="news-item"><h3>Federal Reserve</h3><p>Pengumuman dan kenyataan bank pusat AS.</p><a class="btn" href="https://www.federalreserve.gov/newsevents.htm" target="_blank" rel="noopener">Buka sumber ↗</a></div>
+   <div class="news-item"><h3>U.S. Bureau of Labor Statistics</h3><p>Data rasmi CPI dan pekerjaan AS.</p><a class="btn" href="https://www.bls.gov/" target="_blank" rel="noopener">Buka sumber ↗</a></div>
+   <div class="news-item"><h3>U.S. Bureau of Economic Analysis</h3><p>Data rasmi seperti GDP dan PCE.</p><a class="btn" href="https://www.bea.gov/" target="_blank" rel="noopener">Buka sumber ↗</a></div>
+  </div>
+ </div>
 </section>
+
 <section class="section" id="calendar">
-<div class="section-head"><div><div class="eyebrow">02 / Events to watch</div><h2>Economic Calendar</h2><p>Contoh baris ditandakan sebagai demo; bukan jadual acara sebenar.</p></div><span class="tag">EVENT RADAR</span></div>
-<div class="card">
-<div class="calendar-tools"><select id="currency-filter" class="control" aria-label="Tapis mata wang"><option value="ALL">Semua mata wang</option><option>USD</option><option>EUR</option><option>GBP</option><option>JPY</option><option>AUD</option><option>CAD</option></select><select id="impact-filter" class="control" aria-label="Tapis impak"><option value="ALL">Semua impak</option><option value="High">High</option><option value="Medium">Medium</option><option value="Low">Low</option></select><button class="btn" id="reset-calendar">Reset filter</button></div>
-<div class="table-wrap"><table><thead><tr><th>Masa / Tarikh</th><th>Mata wang</th><th>Acara</th><th>Impak</th><th>Status data</th></tr></thead><tbody id="calendar-body"></tbody></table></div>
-<div class="disclaimer">Demo sahaja: acara, masa, ramalan dan keputusan sebenar perlu datang daripada API kalendar yang sah. Semak zon waktu sumber sebelum menggunakan jadual ini.</div>
-</div>
+ <div class="section-head"><div><div class="eyebrow">02 / ECONOMIC EVENTS</div>
+  <h2>Economic Calendar</h2>
+  <p>Jadual acara langsung belum disambungkan. Tiada acara rekaan dipaparkan.</p></div>
+  <span class="tag">DATA BELUM DISAMBUNG</span></div>
+ <div class="card">
+  <div class="tools">
+   <select class="control" id="currency-filter" aria-label="Tapis mata wang">
+    <option value="ALL">Semua mata wang</option><option>USD</option><option>EUR</option>
+    <option>GBP</option><option>JPY</option><option>AUD</option><option>CAD</option>
+   </select>
+   <button class="btn" id="reset-calendar">Reset filter</button>
+  </div>
+  <div class="table-wrap"><table>
+   <thead><tr><th>Masa / Tarikh</th><th>Mata wang</th><th>Acara</th><th>Status</th></tr></thead>
+   <tbody id="calendar-body"><tr><td colspan="4">Kalendar ekonomi belum disambungkan kepada API. Semak jadual rasmi sebelum membuat keputusan.</td></tr></tbody>
+  </table></div>
+  <div class="notice">Untuk memaparkan masa, ramalan dan keputusan sebenar, sambungkan penyedia kalendar ekonomi yang sah. GitHub Pages sahaja tidak membekalkan data ekonomi secara automatik.</div>
+  <p><a class="btn" href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">Semak kalendar Forex Factory ↗</a></p>
+ </div>
 </section>
+
+<section class="section" id="tradingview">
+ <div class="section-head"><div><div class="eyebrow">03 / LIVE CHART</div>
+  <h2>TradingView — XAUUSD</h2>
+  <p>Carta daripada widget TradingView. Data dan simbol bergantung pada penyedia yang dipilih.</p></div>
+  <span class="tag">TRADINGVIEW</span></div>
+ <div class="card">
+  <div class="tools">
+   <label class="muted" for="symbol-select" style="font-size:12px;align-self:center">Simbol:</label>
+   <select id="symbol-select" class="control">
+    <option value="OANDA:XAUUSD">XAUUSD · OANDA</option>
+    <option value="FX_IDC:XAUUSD">XAUUSD · FX_IDC</option>
+    <option value="TVC:GOLD">GOLD · TVC</option>
+    <option value="OANDA:EURUSD">EURUSD · OANDA</option>
+    <option value="OANDA:GBPUSD">GBPUSD · OANDA</option>
+    <option value="TVC:DXY">US Dollar Index · DXY</option>
+   </select>
+   <label class="muted" for="interval-select" style="font-size:12px;align-self:center">Timeframe:</label>
+   <select id="interval-select" class="control">
+    <option value="15">15 min</option><option value="60" selected>1 hour</option>
+    <option value="240">4 hours</option><option value="D">1 day</option>
+    <option value="W">1 week</option>
+   </select>
+   <button class="btn primary" id="load-chart">Muat carta</button>
+  </div>
+  <div class="chart-frame">
+   <iframe id="tv-chart" title="TradingView chart" loading="lazy"
+    referrerpolicy="origin"
+    src="https://s.tradingview.com/widgetembed/?symbol=OANDA%3AXAUUSD&interval=60&theme=dark&style=1&timezone=Asia%2FKuala_Lumpur&withdateranges=1&hide_side_toolbar=0&allow_symbol_change=1&saveimage=0&locale=en">
+   </iframe>
+  </div>
+  <p class="chart-caption">Jika carta tidak muncul, semak sambungan internet atau buka TradingView melalui pautan di bawah. Harga mungkin berbeza daripada broker anda. Carta ini tidak menghantar pesanan kepada broker.</p>
+  <a class="btn" href="https://www.tradingview.com/chart/" target="_blank" rel="noopener">Buka TradingView ↗</a>
+ </div>
+</section>
+
 <section class="section" id="analysis">
-<div class="section-head"><div><div class="eyebrow">03 / Gold desk</div><h2>XAUUSD Analysis</h2><p>Templat nota analisis — belum membaca carta atau harga live secara automatik.</p></div><span class="tag">GOLD / USD</span></div>
-<div class="analysis-grid">
-<div class="card">
-<div class="card-title">Market Bias</div><div class="bias"><div class="bias-badge neutral" id="bias-label">NEUTRAL / DEMO</div><div><div style="font-weight:800;font-size:13px">Belum ada isyarat live</div><div class="muted" style="font-size:11px;margin-top:4px">Isi nota berdasarkan carta sebenar</div></div></div>
-<p class="muted" style="font-size:12px;line-height:1.8">Analisis patut menggabungkan struktur harga, zon penting dan konteks berita. Jangan anggap label demo sebagai cadangan beli atau jual.</p>
-<div class="levels"><div class="level"><small>Resistance</small><strong id="resistance">—</strong></div><div class="level"><small>Support</small><strong id="support">—</strong></div><div class="level"><small>Timeframe</small><strong id="timeframe">H1 / H4</strong></div></div>
-<div class="chart-note">Level harga belum diisi. Masukkan tahap yang disahkan daripada carta semasa; tiada angka direka dalam templat ini.</div>
-</div>
-<div class="card">
-<div class="card-title">Analysis Notes</div><div class="chartbox"><svg viewBox="0 0 500 180" preserveAspectRatio="none" role="img" aria-label="Ilustrasi hiasan, bukan carta harga live"><defs><pattern id="grid" width="40" height="30" patternUnits="userSpaceOnUse"><path d="M40 0H0V30" fill="none" stroke="#453652" stroke-width=".7"/></pattern><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a855f7" stop-opacity=".28"/><stop offset="1" stop-color="#a855f7" stop-opacity="0"/></linearGradient></defs><rect width="500" height="180" fill="url(#grid)"/><path d="M0 132 L45 120 L80 138 L115 92 L150 108 L184 70 L222 87 L254 55 L290 73 L327 43 L365 63 L403 31 L444 50 L500 18 L500 180 L0 180Z" fill="url(#fill)"/><path d="M0 132 L45 120 L80 138 L115 92 L150 108 L184 70 L222 87 L254 55 L290 73 L327 43 L365 63 L403 31 L444 50 L500 18" fill="none" stroke="#bc62ff" stroke-width="2.5"/><line x1="0" y1="102" x2="500" y2="102" stroke="#ff3158" stroke-dasharray="5 5" opacity=".8"/></svg></div>
-<div class="news-list">
-<div class="news-item"><div><div class="meta"><span class="label">STRUCTURE</span></div><h3>Semak HH/HL atau LH/LL</h3><p>Kenal pasti struktur swing pada timeframe pilihan sebelum menentukan bias.</p></div></div>
-<div class="news-item"><div><div class="meta"><span class="label">CATALYST</span></div><h3>Semak berita berimpak tinggi</h3><p>Volatiliti boleh meningkat sekitar pengumuman ekonomi; spread dan slippage juga boleh berubah.</p></div></div>
-</div>
-</div>
-</div>
-<div class="disclaimer"><strong>Penafian:</strong> Kandungan untuk pendidikan dan maklumat sahaja, bukan nasihat kewangan atau isyarat perdagangan. Dagangan forex/CFD berisiko tinggi dan boleh menyebabkan kerugian.</div>
+ <div class="section-head"><div><div class="eyebrow">04 / GOLD DESK</div>
+  <h2>BUY / SELL Analysis</h2>
+  <p>Pilih senario yang ingin dikaji. Pilihan ini tidak menganalisis carta secara automatik.</p></div>
+  <span class="tag">MANUAL ANALYSIS</span></div>
+ <div class="analysis-grid">
+  <div class="card">
+   <div class="card-title">Pilih senario analisis</div>
+   <div class="trade-buttons">
+    <button class="trade-btn buy" data-scenario="buy">▲ BUY</button>
+    <button class="trade-btn sell" data-scenario="sell">▼ SELL</button>
+    <button class="trade-btn neutral active" data-scenario="neutral">— WAIT</button>
+   </div>
+   <div class="scenario" aria-live="polite">
+    <strong id="scenario-title">WAIT — Tunggu pengesahan</strong>
+    <p id="scenario-text">Semak trend, struktur HH/HL atau LH/LL, sokongan/rintangan dan berita sebelum membentuk senario. Tiada isyarat automatik.</p>
+   </div>
+   <div class="levels">
+    <div class="level"><small>Resistance</small><strong>Isi daripada carta</strong></div>
+    <div class="level"><small>Support</small><strong>Isi daripada carta</strong></div>
+    <div class="level"><small>Timeframe</small><strong id="selected-timeframe">H1</strong></div>
+   </div>
+   <div class="notice">BUY/SELL di sini hanya label senario untuk kajian. Ia bukan cadangan peribadi, bukan ramalan pasti dan tidak membuka dagangan.</div>
+  </div>
+  <div class="card">
+   <div class="card-title">Checklist sebelum analisis</div>
+   <div class="news-item"><h3>01 — Market structure</h3><p>Adakah carta membentuk higher highs/higher lows atau lower highs/lower lows?</p></div>
+   <div class="news-item"><h3>02 — Support & resistance</h3><p>Tandakan zon daripada carta semasa. Jangan gunakan level yang tidak disahkan.</p></div>
+   <div class="news-item"><h3>03 — Economic events</h3><p>Semak waktu berita rasmi dan perubahan volatiliti.</p></div>
+   <div class="news-item"><h3>04 — Risk management</h3><p>Fahami risiko kerugian, spread dan slippage. Jangan anggap sesuatu senario pasti berjaya.</p></div>
+  </div>
+ </div>
+ <div class="notice"><strong>Penafian:</strong> Kandungan untuk pendidikan sahaja, bukan nasihat kewangan atau isyarat perdagangan. Forex dan CFD berisiko tinggi. Pastikan anda memahami produk dan peraturan yang terpakai sebelum menggunakannya.</div>
 </section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><div><strong>VOID FX</strong><br>Forex News Pro · Built for GitHub Pages</div><div>Berita dan data perlu disahkan dengan sumber asal.<br><span id="footer-time"></span></div></div></footer>
+
+<footer class="footer"><div class="wrap footer-inner">
+ <div><strong style="color:white">VOID FX</strong><br>Forex News Pro · GitHub Pages</div>
+ <div>Data live memerlukan sumber yang sesuai.<br><span id="footer-time"></span></div>
+</div></footer>
+
 <script>
-/* DEMO CONTENT ONLY. Replace these arrays with verified data from a licensed/allowed API.
-   Never put secret API keys in this public JavaScript file. */
-const NEWS = [
- {category:"EDUCATION",time:"Demo content",title:"Cara membaca berita CPI dan kesannya pada pasaran",summary:"Bandingkan bacaan sebenar dengan ramalan dan bacaan terdahulu. Reaksi pasaran tidak semestinya sehala.",source:"Editorial demo"},
- {category:"GOLD",time:"Demo content",title:"Apa yang perlu diperhatikan sebelum analisis XAUUSD",summary:"Semak struktur harga, dolar AS, hasil bon dan kalendar ekonomi sebelum membentuk senario.",source:"Editorial demo"},
- {category:"RISK",time:"Demo content",title:"Pengurusan risiko ketika berita berimpak tinggi",summary:"Volatiliti, spread dan slippage boleh meningkat. Rancang risiko dan elakkan bergantung pada satu tajuk berita.",source:"Editorial demo"}
-];
-const EVENTS = [
- {date:"DEMO",currency:"USD",event:"CPI — Consumer Price Index",impact:"High",status:"Contoh sahaja"},
- {date:"DEMO",currency:"USD",event:"Nonfarm Payrolls (NFP)",impact:"High",status:"Contoh sahaja"},
- {date:"DEMO",currency:"USD",event:"FOMC Rate Decision",impact:"High",status:"Contoh sahaja"},
- {date:"DEMO",currency:"EUR",event:"ECB Interest Rate Decision",impact:"High",status:"Contoh sahaja"},
- {date:"DEMO",currency:"GBP",event:"UK CPI Inflation",impact:"Medium",status:"Contoh sahaja"},
- {date:"DEMO",currency:"JPY",event:"BOJ Policy Statement",impact:"High",status:"Contoh sahaja"}
-];
-const newsList=document.getElementById("news-list");
-newsList.innerHTML=NEWS.map(n=>`<article class="news-item"><div><div class="meta"><span class="label">${n.category}</span><span>${n.time}</span></div><h3>${n.title}</h3><p>${n.summary}</p><div class="meta" style="margin-top:9px">Source: ${n.source}</div></div><span class="tag">DEMO</span></article>`).join("");
-const body=document.getElementById("calendar-body");
-function renderCalendar(){const c=document.getElementById("currency-filter").value;const i=document.getElementById("impact-filter").value;const filtered=EVENTS.filter(e=>(c==="ALL"||e.currency===c)&&(i==="ALL"||e.impact===i));body.innerHTML=filtered.length?filtered.map(e=>`<tr><td>${e.date}</td><td><strong>${e.currency}</strong></td><td>${e.event}</td><td><span class="impact ${e.impact.toLowerCase()}"><span class="impact-dot dot-${e.impact.toLowerCase()}"></span>${e.impact}</span></td><td><span class="label">${e.status}</span></td></tr>`).join(""):`<tr><td colspan="5">Tiada acara untuk filter ini.</td></tr>`}
-document.getElementById("currency-filter").addEventListener("change",renderCalendar);
-document.getElementById("impact-filter").addEventListener("change",renderCalendar);
-document.getElementById("reset-calendar").addEventListener("click",()=>{document.getElementById("currency-filter").value="ALL";document.getElementById("impact-filter").value="ALL";renderCalendar()});
-function updateClock(){const now=new Date();const fmt=new Intl.DateTimeFormat("ms-MY",{dateStyle:"medium",timeStyle:"short"}).format(now);document.getElementById("updated").textContent=fmt;document.getElementById("footer-time").textContent="Waktu paparan: "+fmt;}
-renderCalendar();updateClock();
+const symbolSelect = document.getElementById("symbol-select");
+const intervalSelect = document.getElementById("interval-select");
+const chart = document.getElementById("tv-chart");
+
+function loadChart(){
+ const symbol = symbolSelect.value;
+ const interval = intervalSelect.value;
+ const params = new URLSearchParams({
+   symbol,
+   interval,
+   theme:"dark",
+   style:"1",
+   timezone:"Asia/Kuala_Lumpur",
+   withdateranges:"1",
+   hide_side_toolbar:"0",
+   allow_symbol_change:"1",
+   saveimage:"0",
+   locale:"en"
+ });
+ chart.src = "https://s.tradingview.com/widgetembed/?" + params.toString();
+ document.getElementById("selected-timeframe").textContent =
+   interval === "15" ? "M15" :
+   interval === "60" ? "H1" :
+   interval === "240" ? "H4" :
+   interval === "D" ? "D1" : "W1";
+}
+document.getElementById("load-chart").addEventListener("click",loadChart);
+
+const scenarios = {
+ buy:{
+  title:"BUY — Senario bullish",
+  text:"Pertimbangkan senario bullish hanya jika struktur menaik dan sokongan disahkan pada carta. Tunggu pengesahan harga; label ini bukan isyarat automatik."
+ },
+ sell:{
+  title:"SELL — Senario bearish",
+  text:"Pertimbangkan senario bearish hanya jika struktur menurun dan rintangan disahkan pada carta. Tunggu pengesahan harga; label ini bukan isyarat automatik."
+ },
+ neutral:{
+  title:"WAIT — Tunggu pengesahan",
+  text:"Semak trend, struktur HH/HL atau LH/LL, sokongan/rintangan dan berita sebelum membentuk senario. Tiada isyarat automatik."
+ }
+};
+
+document.querySelectorAll("[data-scenario]").forEach(button=>{
+ button.addEventListener("click",()=>{
+  const key = button.dataset.scenario;
+  document.querySelectorAll("[data-scenario]").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  document.getElementById("scenario-title").textContent=scenarios[key].title;
+  document.getElementById("scenario-text").textContent=scenarios[key].text;
+ });
+});
+
+document.getElementById("reset-calendar").addEventListener("click",()=>{
+ document.getElementById("currency-filter").value="ALL";
+ document.getElementById("calendar-body").innerHTML =
+ '<tr><td colspan="4">Kalendar ekonomi belum disambungkan kepada API. Semak jadual rasmi sebelum membuat keputusan.</td></tr>';
+});
+
+function updateClock(){
+ const now = new Intl.DateTimeFormat("ms-MY",{
+  dateStyle:"medium",timeStyle:"short"
+ }).format(new Date());
+ document.getElementById("updated").textContent=now;
+ document.getElementById("footer-time").textContent="Waktu peranti: "+now;
+}
+updateClock();
+setInterval(updateClock,60000);
 </script>
 </body>
 </html>
